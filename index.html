@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Barbería Castillo - Reservar Cita</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Fuente moderna -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+  <img src="img/logo-barberia-castillo.jpeg" alt="Logo Barbería Castillo" class="logo">
+  <h1>Barbería Castillo</h1>
+</header>
+
+<!-- Pantalla inicial -->
+<div id="inicio" class="pantalla visible fade">
+  <div class="inspiracion">"Un buen corte es el inicio de una gran confianza"</div>
+  <input type="tel" id="loginTel" placeholder="Ingresa tu número de teléfono">
+  <br>
+  <button class="btn" onclick="login()">Entrar</button>
+</div>
+
+<!-- Pantalla principal -->
+<div id="principal" class="pantalla fade">
+  <h2>Bienvenido a la Barbería</h2>
+  <button class="btn" onclick="mostrarPantalla('servicios')">Reservar Cita</button>
+  <h3>Tus citas</h3>
+  <div id="misCitas"></div>
+</div>
+
+<!-- Selección de servicios -->
+<div id="servicios" class="pantalla fade">
+  <h2>Selecciona tus servicios</h2>
+  <label>
+    <input type="checkbox" value="Corte de cabello" onchange="toggleCortes(this)"> Corte de cabello
+  </label><br>
+  <div id="menuCortes" style="display:none;">
+    <select id="tipoCorte">
+      <option value="Clásico">Clásico</option>
+      <option value="Fade">Fade</option>
+      <option value="Pompadour">Pompadour</option>
+      <option value="Buzz Cut">Buzz Cut</option>
+      <option value="Undercut">Undercut</option>
+    </select>
+  </div>
+  <label><input type="checkbox" value="Servicio de barba"> Servicio de barba</label><br>
+  <label><input type="checkbox" value="Limpieza facial"> Limpieza facial</label><br>
+  <button class="btn" onclick="guardarServicios()">Continuar</button>
+</div>
+
+<!-- Selección de fecha -->
+<div id="fecha" class="pantalla fade">
+  <h2>Selecciona la fecha</h2>
+  <select id="selectFecha"></select>
+  <br>
+  <button class="btn" onclick="guardarFecha()">Continuar</button>
+</div>
+
+<!-- Selección de hora -->
+<div id="hora" class="pantalla fade">
+  <h2>Selecciona la hora</h2>
+  <select id="selectHora"></select>
+  <br>
+  <button class="btn" onclick="guardarHora()">Continuar</button>
+</div>
+
+<!-- Datos personales -->
+<div id="datos" class="pantalla fade">
+  <h2>Datos personales</h2>
+  <div class="card-datos">
+    <input type="text" id="nombre" placeholder="Nombre completo"><br>
+    <input type="tel" id="telefono" placeholder="Número de teléfono"><br>
+    <button class="btn" onclick="guardarDatos()">Continuar</button>
+  </div>
+</div>
+
+<!-- Resumen -->
+<div id="resumen" class="pantalla fade">
+  <h2>Resumen de tu cita</h2>
+  <div id="detalleCita"></div>
+  <button class="btn" onclick="confirmarCita()">Confirmar</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
